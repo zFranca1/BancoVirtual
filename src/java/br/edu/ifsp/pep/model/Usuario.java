@@ -28,9 +28,9 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo", length = 1, discriminatorType = DiscriminatorType.CHAR)
 @DiscriminatorValue("U")
-@NamedQueries({
-    @NamedQuery(name = "Usuario.buscaCPF", query = "SELECT U FROM Usuario u WHERE u.cpf = :cpf")
-})
+//@NamedQueries({
+//    @NamedQuery(name = "Usuario.buscaCPF", query = "SELECT U FROM Usuario u WHERE u.cpf = :cpf")
+//})
 public class Usuario implements Serializable {
 
     @Id
