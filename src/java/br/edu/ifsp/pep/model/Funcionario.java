@@ -1,7 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package br.edu.ifsp.pep.model;
-
-
-
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
@@ -15,13 +16,11 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @DiscriminatorValue(value = "F")
-//@NamedQueries({
-//    @NamedQuery(name = "Funcionario.autenticacao", query = "SELECT f FROM Funcionario f where f.email = :email AND f.senha = :senha")
-//
-//})
-public class Funcionario extends Usuario{
+@NamedQueries({
+    @NamedQuery(name = "Funcionario.autenticado", query = "SELECT f FROM Funcionario f WHERE f.email = :email AND f.senha = :senha"),})
+public class Funcionario extends Usuario {
 
-    @Column(name = "senha", nullable = false, length = 255)
+    @Column(name = "senha", nullable = true, length = 255)
     private String senha;
 
     public Funcionario() {

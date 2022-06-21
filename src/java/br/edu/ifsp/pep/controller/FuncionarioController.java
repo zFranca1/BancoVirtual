@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package br.edu.ifsp.pep.controller;
 
 import br.edu.ifsp.pep.dao.FuncionarioDAO;
@@ -5,10 +9,9 @@ import br.edu.ifsp.pep.model.Funcionario;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import org.primefaces.component.message.Message;
+import javax.inject.Named;
 
 /**
  *
@@ -19,16 +22,12 @@ import org.primefaces.component.message.Message;
 public class FuncionarioController implements Serializable {
 
     @EJB
-    private Funcionario funcionario;
     private FuncionarioDAO funcionarioDAO;
+
+    private Funcionario funcionario;
     private Funcionario funcionarioAutenticado = null;
 
-    public FuncionarioController() {
-
-        this.funcionario = new Funcionario();
-    }
-
-    public void autenticar() {
+    public void Autenticar() {
 
         String senha = funcionario.getSenha();
 
@@ -50,20 +49,20 @@ public class FuncionarioController implements Serializable {
                 addMessage(null, new FacesMessage(severity, summary, detail));
     }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
     public FuncionarioDAO getFuncionarioDAO() {
         return funcionarioDAO;
     }
 
     public void setFuncionarioDAO(FuncionarioDAO funcionarioDAO) {
         this.funcionarioDAO = funcionarioDAO;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
     public Funcionario getFuncionarioAutenticado() {
