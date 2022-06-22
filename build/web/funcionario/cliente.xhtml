@@ -11,38 +11,32 @@
         <ui:composition template="./templateFuncionario.xhtml">
 
             <ui:define name="content">
-                <p:dataTable id="clientes" var="cliente"
-                             value="#{clienteController.clientes}"
-                             rowKey="#{cliente.codigo}"
-                             selection="#{clienteController.clienteSelecionado}"
-                             selectionMode="single"
-                             stripedRows="true"
-                             rows="5"
-                             lazy="false">
+                <p>Clientes</p>
+                <h:form>
+                    <p:commandButton value="Novo" class="button" action="novoCliente"/>
+                    <p:dataTable id="clientes" var="cliente"
+                                 value="#{clienteController.clientes}"
+                                 rowKey="#{cliente.codigo}"
+                                 selection="#{clienteController.clienteSelecionado}"
+                                 selectionMode="single"
+                                 stripedRows="true"
+                                 rows="5"
+                                 lazy="false">
 
-                    <f:facet name="header">
-                        Clientes
-                        <p></p>
-                        <p:commandButton value="Novo"
-                                         immediate="true"                                         
-                                         />
-                    </f:facet>
-
-                    <p:column headerText="Codigo">
-                        <h:outputText value="#{cliente.codigo}" />
-                    </p:column>
-                    <p:column headerText="Nome">
-                        <h:outputText value="#{cliente.nome}" />
-                    </p:column>
-                    <p:column headerText="CPF">
-                        <h:outputText value="#{cliente.cpf}" />
-                    </p:column>
-                    <p:column headerText="Email">
-                        <h:outputText value="#{cliente.email}" />
-                    </p:column>
-
-
-                </p:dataTable>
+                        <p:column headerText="Codigo">
+                            <h:outputText value="#{cliente.codigo}" />
+                        </p:column>
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{cliente.nome}" />
+                        </p:column>
+                        <p:column headerText="CPF">
+                            <h:outputText value="#{cliente.cpf}" />
+                        </p:column>
+                        <p:column headerText="Email">
+                            <h:outputText value="#{cliente.email}" />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
             </ui:define>
 
             <ui:define name="bottom">

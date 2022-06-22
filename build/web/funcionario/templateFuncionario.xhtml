@@ -39,9 +39,14 @@
                             <p:menuitem value="Sair" outcome="/funcionario/homeFuncionario" icon="pi pi-fw pi-sign-out">
                                 <f:param name="i" value="5"/>
                             </p:menuitem>
-                            <p:menuitem value="" outcome="/funcionario/homeFuncionario" style="margin-right: 8px">
+                            <p:menuitem value="" outcome="/funcionario/homeFuncionario">
                                 <f:param name="i" value="6"/>
                                 <p:avatar label="F" styleClass="p-mr-2" size="xsmall" shape="circle" />
+                            </p:menuitem>
+
+                            <p:menuitem value="" outcome="/funcionario/homeFuncionario" style="margin-right: 8px">
+                                <f:param name="i" value="7"/>
+                                #{funcionarioController.getfuncionarioAutenticado().nome}
                             </p:menuitem>
                         </p:tabMenu>
 

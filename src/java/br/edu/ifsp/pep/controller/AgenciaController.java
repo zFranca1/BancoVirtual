@@ -34,7 +34,7 @@ public class AgenciaController implements Serializable {
     }
 
     public List<Agencia> getAgencias() {
-        return agencias;
+        return agenciaDAO.buscar();
     }
 
     public void setAgencias(List<Agencia> agencias) {

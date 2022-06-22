@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./templateFuncionario.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <div class="p-field p-grid">
+                        <div class="p-col">
+                            <p:inputText type="text" placeholder="Nome" />
+                        </div>
+                    </div>
+                    <p>
+                    </p>
+                    <div class="p-field p-grid">
+                        <div class="p-col">
+                            <p:inputText type="text" placeholder="Cpf" />
+                        </div>
+                    </div>
+                    <p>
+                    </p>
+                    <div class="p-field p-grid">
+                        <div class="p-col">
+                            <p:inputText type="text" placeholder="E-mail" />
+                        </div>
+                    </div>
+                    <p>
+                    </p>
+                    <div class="p-field p-grid">
+                        <div class="p-col">
+                            <p:password value="#{passwordView.password6}" toggleMask="true" redisplay="true" placeholder="Senha" style="width: 212px"/>
+                        </div>
+                    </div>
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:selectOneMenu id="option" value="#{clienteController.cliente.agencia}">
+                            <f:selectItem itemLabel="Select One" itemValue=""/>
+                            <f:selectItems var="item" value="#{agenciaController.agencias}" itemValue="#{item}" itemLabel="#{item.numero} - #{item.nome}"/>
+                        </p:selectOneMenu>
+                    </div>
+                </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
