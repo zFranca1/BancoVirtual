@@ -24,8 +24,8 @@ public class Funcionario extends Usuario {
     public Funcionario() {
     }
 
-    public Funcionario(String senha, int codigo, String nome, String cpf, String email, String tipo) {
-        super(codigo, nome, cpf, email, tipo);
+    public Funcionario(String senha, int codigo, String nome, String cpf, String email, String tipo, Agencia agencia) {
+        super(codigo, nome, cpf, email, tipo, agencia);
         this.senha = senha;
     }
 

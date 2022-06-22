@@ -7,11 +7,14 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -43,16 +46,21 @@ public class Usuario implements Serializable {
     @Column(name = "tipo", nullable = false, length = 3)
     private String tipo;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "agencia_codigo", nullable = false)
+    private Agencia agencia;
+
     public Usuario() {
 
     }
 
-    public Usuario(int codigo, String nome, String cpf, String email, String tipo) {
+    public Usuario(int codigo, String nome, String cpf, String email, String tipo, Agencia agencia) {
         this.codigo = codigo;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.tipo = tipo;
+        this.agencia = agencia;
     }
 
     @Override
@@ -79,6 +87,14 @@ public class Usuario implements Serializable {
 
     public int getCodigo() {
         return codigo;
+    }
+
+    public Agencia getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(Agencia agencia) {
+        this.agencia = agencia;
     }
 
     public void setCodigo(int codigo) {
