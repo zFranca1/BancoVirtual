@@ -1,2 +1,2 @@
-
+Select * FROM usuario;
 

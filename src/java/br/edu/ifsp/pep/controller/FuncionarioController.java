@@ -54,11 +54,11 @@ public class FuncionarioController implements Serializable {
         this.funcionario = funcionario;
     }
 
-    public Funcionario getfAutenticado() {
+    public Funcionario getfuncionarioAutenticado() {
         return funcionarioAutenticado;
     }
 
-    public void setfAutenticado(Funcionario fAutenticado) {
+    public void setfuncionarioAutenticado(Funcionario funcionarioAutenticado) {
         this.funcionarioAutenticado = funcionarioAutenticado;
     }
 
