@@ -11,10 +11,10 @@
         <ui:composition template="./templateFuncionario.xhtml">
 
             <ui:define name="content">
-                <p:dataTable id="clientes" var="product"
-                             value="#{controllerProduto.produtos}"
-                             rowKey="#{product.codigo}"
-                             selection="#{controllerProduto.produtoselected}"
+                <p:dataTable id="clientes" var="cliente"
+                             value="#{clienteController.clientes}"
+                             rowKey="#{cliente.codigo}"
+                             selection="#{clienteController.clienteSelecionado}"
                              selectionMode="single"
                              stripedRows="true"
                              rows="5"
@@ -29,16 +29,16 @@
                     </f:facet>
 
                     <p:column headerText="Codigo">
-                        <h:outputText value="#{product.codigo}" />
+                        <h:outputText value="#{cliente.codigo}" />
                     </p:column>
                     <p:column headerText="Nome">
-                        <h:outputText value="#{product.nome}" />
+                        <h:outputText value="#{cliente.nome}" />
                     </p:column>
                     <p:column headerText="CPF">
-                        <h:outputText value="#{product.valor}" />
+                        <h:outputText value="#{cliente.cpf}" />
                     </p:column>
                     <p:column headerText="Email">
-                        <h:outputText value="#{product.descricao}" />
+                        <h:outputText value="#{cliente.email}" />
                     </p:column>
 
 

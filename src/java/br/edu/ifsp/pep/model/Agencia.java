@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,6 +19,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "agencia")
+@NamedQueries({
+    @NamedQuery(name = "Agencia.buscar", query = "SELECT A FROM Agencia a"),})
 public class Agencia implements Serializable {
 
     @Id
@@ -46,8 +50,6 @@ public class Agencia implements Serializable {
         this.usuarios = usuarios;
         this.contas = contas;
     }
-    
-    
 
     public int getCodigo() {
         return codigo;
@@ -113,7 +115,5 @@ public class Agencia implements Serializable {
         }
         return true;
     }
-    
-    
-    
+
 }

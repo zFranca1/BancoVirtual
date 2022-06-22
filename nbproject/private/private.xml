@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/franca1/NetBeansProjects/Banco_Fp2/src/java/br/edu/ifsp/pep/model/Conta.java</file>
             <file>file:/home/franca1/NetBeansProjects/Banco_Fp2/src/java/br/edu/ifsp/pep/model/Agencia.java</file>
-            <file>file:/home/franca1/NetBeansProjects/Banco_Fp2/src/java/br/edu/ifsp/pep/model/Cliente.java</file>
-            <file>file:/home/franca1/NetBeansProjects/Banco_Fp2/src/java/br/edu/ifsp/pep/model/ContaEspecial.java</file>
+            <file>file:/home/franca1/NetBeansProjects/Banco_Fp2/src/java/br/edu/ifsp/pep/dao/AgenciaDAO.java</file>
+            <file>file:/home/franca1/NetBeansProjects/Banco_Fp2/src/java/br/edu/ifsp/pep/controller/AgenciaController.java</file>
         </group>
     </open-files>
 </project-private>

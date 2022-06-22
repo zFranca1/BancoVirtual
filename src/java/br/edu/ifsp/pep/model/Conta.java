@@ -14,6 +14,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -25,6 +27,10 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo", length = 1, discriminatorType = DiscriminatorType.CHAR)
 @DiscriminatorValue("C")
+@NamedQueries({
+    @NamedQuery(name = "Conta.busca", query = "SELECT c FROM Conta c WHERE c.numero = :numero AND c.agencia = :agencia"),
+    @NamedQuery(name = "Conta.autentica", query = "SELECT c FROM Conta c WHERE c.numero = :numero AND c.agencia = :agencia AND c.senha=:senha")
+})
 public class Conta implements Serializable {
 
     @Id

@@ -4,6 +4,8 @@ import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -12,6 +14,9 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @DiscriminatorValue(value = "C")
+@NamedQueries({
+    @NamedQuery(name = "Cliente.buscar", query = "SELECT c FROM Cliente c"),})
+
 public class Cliente extends Usuario {
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
