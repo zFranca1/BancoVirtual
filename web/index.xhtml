@@ -1,12 +1,55 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Login Funcionario</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+
+        <h:form class="form" id="formulario">
+            <div class="card">
+                <h2>Login</h2>
+                <p:growl id="growl" showDetail="true" />
+                <p:outputLabel for="login"/>
+                <p:inputText id="login" placeholder="Login" class="logintxt" style="width: 100%" value="#{funcionarioController.funcionario.email}"/>
+                <p></p>
+                <p:outputLabel for="senha" />
+                <p:password id="senha" placeholder="Senha" class="senhatxt" style="width: 100%" value="#{funcionarioController.funcionario.senha}"/>
+                <p></p>
+                <p:commandButton value="Entrar" class="button" update="formulario" action="#{funcionarioController.autenticar}" ajax="false" />
+            </div>
+        </h:form>
     </h:body>
+    <style>
+
+        body{
+
+        }
+
+        .form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+
+        }
+        .card{
+
+            width: 50vh;
+
+        }
+
+        .button{
+            width: 50vh;
+        }
+        h2{
+            font-family: 'Segoe UI', sans-serif !important;
+
+        }
+
+
+    </style>
 </html>
 

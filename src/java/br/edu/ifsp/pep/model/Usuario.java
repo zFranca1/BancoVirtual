@@ -7,16 +7,11 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -28,9 +23,7 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo", length = 1, discriminatorType = DiscriminatorType.CHAR)
 @DiscriminatorValue("U")
-//@NamedQueries({
-//    @NamedQuery(name = "Usuario.buscaCPF", query = "SELECT U FROM Usuario u WHERE u.cpf = :cpf")
-//})
+
 public class Usuario implements Serializable {
 
     @Id
@@ -47,9 +40,6 @@ public class Usuario implements Serializable {
     @Column(name = "email", nullable = false, length = 255, unique = true)
     private String email;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "agencia_codigo", nullable = false)
-//    private Agencia agencia;
     @Column(name = "tipo", nullable = false, length = 3)
     private String tipo;
 

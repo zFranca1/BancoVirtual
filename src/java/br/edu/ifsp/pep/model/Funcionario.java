@@ -16,8 +16,6 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @DiscriminatorValue(value = "F")
-@NamedQueries({
-    @NamedQuery(name = "Funcionario.autenticado", query = "SELECT f FROM Funcionario f WHERE f.email = :email AND f.senha = :senha"),})
 public class Funcionario extends Usuario {
 
     @Column(name = "senha", nullable = true, length = 255)

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -27,7 +28,7 @@ public class FuncionarioDAO {
 
     public Funcionario autenticacao(String email, String senha) {
 
-        Query query = em.createNamedQuery("Funcionario.autenticacao", Funcionario.class);
+        TypedQuery<Funcionario> query = em.createQuery("SELECT f FROM Funcionario f WHERE f.email = :email AND f.senha = :senha", Funcionario.class);
         query.setParameter("email", email);
         query.setParameter("senha", senha);
 

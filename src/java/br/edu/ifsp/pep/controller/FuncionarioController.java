@@ -1,16 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.edu.ifsp.pep.controller;
 
 import br.edu.ifsp.pep.dao.FuncionarioDAO;
 import br.edu.ifsp.pep.model.Funcionario;
 import java.io.Serializable;
-import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -21,40 +17,33 @@ import javax.inject.Named;
 @SessionScoped
 public class FuncionarioController implements Serializable {
 
-    @EJB
+    @Inject
     private FuncionarioDAO funcionarioDAO;
 
     private Funcionario funcionario;
+
     private Funcionario funcionarioAutenticado = null;
 
-    public void Autenticar() {
+    public FuncionarioController() {
+        this.funcionario = new Funcionario();
+    }
 
-        String senha = funcionario.getSenha();
+    public void autenticar() {
+        Funcionario f = funcionarioDAO.autenticacao(funcionario.getEmail(), funcionario.getSenha());
 
-        Funcionario func = funcionarioDAO.autenticacao(funcionario.getEmail(), senha);
-
-        if (func == null) {
+        if (f == null) {
             addMessage(FacesMessage.SEVERITY_FATAL, "ERRO", "usuario ou senha invalidos");
             return;
         }
 
-        funcionarioAutenticado = func;
+        funcionarioAutenticado = f;
         funcionario = new Funcionario();
         addMessage(FacesMessage.SEVERITY_INFO, "SUCESSO", "entrou");
-
     }
 
-    public void addMessage(FacesMessage.Severity severity, String summary, String detail) {
-        FacesContext.getCurrentInstance().
-                addMessage(null, new FacesMessage(severity, summary, detail));
-    }
+    public void sair() {
+        funcionarioAutenticado = null;
 
-    public FuncionarioDAO getFuncionarioDAO() {
-        return funcionarioDAO;
-    }
-
-    public void setFuncionarioDAO(FuncionarioDAO funcionarioDAO) {
-        this.funcionarioDAO = funcionarioDAO;
     }
 
     public Funcionario getFuncionario() {
@@ -65,12 +54,17 @@ public class FuncionarioController implements Serializable {
         this.funcionario = funcionario;
     }
 
-    public Funcionario getFuncionarioAutenticado() {
+    public Funcionario getfAutenticado() {
         return funcionarioAutenticado;
     }
 
-    public void setFuncionarioAutenticado(Funcionario funcionarioAutenticado) {
+    public void setfAutenticado(Funcionario fAutenticado) {
         this.funcionarioAutenticado = funcionarioAutenticado;
+    }
+
+    public void addMessage(FacesMessage.Severity severity, String summary, String detail) {
+        FacesContext.getCurrentInstance().
+                addMessage(null, new FacesMessage(severity, summary, detail));
     }
 
 }
