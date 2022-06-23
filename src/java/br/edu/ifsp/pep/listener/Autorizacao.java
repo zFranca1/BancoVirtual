@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.edu.ifsp.pep.listener;
 
 import br.edu.ifsp.pep.controller.ContaController;
@@ -59,7 +55,7 @@ public class Autorizacao implements PhaseListener {
 
         if (contaAutenticada != null && !Rotas.rotaValida('c', request.getServletPath())) {
             try {
-                pe.getFacesContext().getExternalContext().redirect("/Banco_Fp2/homeCliente.xhtml");
+                pe.getFacesContext().getExternalContext().redirect("/Banco_Fp2/cliente/homeCliente.xhtml");
 
             } catch (Exception e) {
                 e.printStackTrace();

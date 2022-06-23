@@ -114,6 +114,8 @@ public class ContaController implements Serializable {
     public void setContaAutenticada(Conta contaAutenticada) {
         this.contaAutenticada = contaAutenticada;
     }
+    
+    
 
     public void addMessage(FacesMessage.Severity severity, String summary, String detail) {
         FacesContext.getCurrentInstance().
