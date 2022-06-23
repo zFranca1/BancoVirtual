@@ -46,16 +46,30 @@
     margin: 0px 170px 0px 170px;
 }
 
+.centeredMenuBar.ui-menubar {
+    text-align: center;
+}
+
+.centeredMenuBar .ui-menu-list {
+    display: inline-block;
+}
+
+body .ui-input-icon-righ{
+    align-items: center !important;
+    display: flex !important;
+    
+}
+
 #top a:link, #top a:visited {
-  color: white;
-  font-weight : bold;
-  text-decoration: none;
+    color: white;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
-  font-weight : bold;
-  text-decoration : underline;
+    color: black;
+    font-weight : bold;
+    text-decoration : underline;
 }
 
 

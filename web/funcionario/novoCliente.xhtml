@@ -14,37 +14,33 @@
                 <h:form>
                     <div class="p-field p-grid">
                         <div class="p-col">
-                            <p:inputText type="text" placeholder="Nome" />
+                            <p:inputText type="text" placeholder="Nome" value="#{clienteController.cliente.nome}" required="true"/>
                         </div>
                     </div>
                     <p>
                     </p>
                     <div class="p-field p-grid">
                         <div class="p-col">
-                            <p:inputText type="text" placeholder="Cpf" />
+                            <p:inputText type="text" placeholder="Cpf" value="#{clienteController.cliente.cpf}" required="true" />
                         </div>
                     </div>
                     <p>
                     </p>
                     <div class="p-field p-grid">
                         <div class="p-col">
-                            <p:inputText type="text" placeholder="E-mail" />
+                            <p:inputText type="text" placeholder="E-mail" value="#{clienteController.cliente.email}" required="true"/>
                         </div>
                     </div>
-                    <p>
-                    </p>
+                    <p></p>
                     <div class="p-field p-grid">
                         <div class="p-col">
-                            <p:password value="#{passwordView.password6}" toggleMask="true" redisplay="true" placeholder="Senha" style="width: 212px"/>
+                            <p:inputText type="text" placeholder="Agencia" value="#{clienteController.codigo}" required="true"/>
                         </div>
                     </div>
-                    <div class="p-field p-col-12 p-md-4">
-                        <p:selectOneMenu id="option" value="#{clienteController.cliente.agencia}">
-                            <f:selectItem itemLabel="Select One" itemValue=""/>
-                            <f:selectItems var="item" value="#{agenciaController.agencias}" itemValue="#{item}" itemLabel="#{item.numero} - #{item.nome}"/>
-                        </p:selectOneMenu>
-                    </div>
+                    <p></p>
+                    <p:commandButton value="Salvar" class="button" action="#{clienteController.cadastroCliente()}" ajax="false"/>
                 </h:form>
+
             </ui:define>
 
             <ui:define name="bottom">

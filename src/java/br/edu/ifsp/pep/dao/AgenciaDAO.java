@@ -8,6 +8,7 @@ import br.edu.ifsp.pep.model.Agencia;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
@@ -28,4 +29,15 @@ public class AgenciaDAO {
         return query.getResultList();
     }
 
+    public Agencia buscarNumero(String numero) {
+        Query query = em.createNamedQuery("Agencia.buscarCodigoAgencia", Agencia.class);
+        query.setParameter("numero", numero);
+
+        try {
+            return (Agencia) query.getSingleResult();
+        } catch (NoResultException ex) {
+            return null;
+        }
+
+    }
 }

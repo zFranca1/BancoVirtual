@@ -20,7 +20,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "agencia")
 @NamedQueries({
-    @NamedQuery(name = "Agencia.buscar", query = "SELECT a FROM Agencia a"),})
+    @NamedQuery(name = "Agencia.buscar", query = "SELECT a FROM Agencia a"),
+    @NamedQuery(name = "Agencia.buscarCodigoAgencia", query = "SELECT a FROM Agencia a WHERE a.numero = :numero")
+
+})
 public class Agencia implements Serializable {
 
     @Id

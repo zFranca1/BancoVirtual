@@ -4,8 +4,10 @@
  */
 package br.edu.ifsp.pep.controller;
 
+import br.edu.ifsp.pep.dao.AgenciaDAO;
 import br.edu.ifsp.pep.dao.ClienteDAO;
 import br.edu.ifsp.pep.dao.UsuarioDAO;
+import br.edu.ifsp.pep.model.Agencia;
 import br.edu.ifsp.pep.model.Cliente;
 import java.io.Serializable;
 import java.util.List;
@@ -25,20 +27,39 @@ public class ClienteController implements Serializable {
     private ClienteDAO clienteDAO;
     @Inject
     private UsuarioDAO usuarioDAO;
+    @Inject
+    private AgenciaDAO agenciaDAO;
 
     private Cliente cliente;
     private Cliente clienteSelecionado;
     private List<Cliente> clientes;
+    private String codigo;
 
     public ClienteController() {
         this.cliente = new Cliente();
+        this.codigo = new String();
     }
 
     public void cadastroCliente() {
 
+        Agencia agencia = agenciaDAO.buscarNumero(codigo);
+        if (agencia == null) {
+
+            return;
+
+        }
+        this.cliente.setAgencia(agencia);
         this.clienteDAO.inserir(cliente);
         this.cliente = new Cliente();
         this.clientes = null;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public ClienteDAO getClienteDAO() {

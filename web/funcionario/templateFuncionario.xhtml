@@ -20,7 +20,7 @@
 
                 <div id="top">
                     <div class="card">
-                        <p:tabMenu activeIndex="#{param.i}">
+                        <p:menubar style="align-items: center" styleClass="centeredMenuBar">
                             <p:menuitem value="Home" outcome="/funcionario/homeFuncionario" icon="pi pi-fw pi-home">
                                 <f:param name="i" value="0"/>
                             </p:menuitem>
@@ -39,18 +39,22 @@
                             <p:menuitem value="Sair" outcome="/funcionario/homeFuncionario" icon="pi pi-fw pi-sign-out">
                                 <f:param name="i" value="5"/>
                             </p:menuitem>
-                            <p:menuitem value="" outcome="/funcionario/homeFuncionario">
-                                <f:param name="i" value="6"/>
-                                <p:avatar label="F" styleClass="p-mr-2" size="xsmall" shape="circle" />
-                            </p:menuitem>
+                            <div class="ui-input-icon-left p-mr-2">
+                                <i class="pi pi-fw pi-search" />
+                                <p:inputText placeholder="Search"/>
+                            </div>
+                            <f:facet name="options">
+                                <div class="ui-input-icon-left p-mr-2" style="align-items: center; display: flex">
+                                    <p:avatar label="F" styleClass="p-mr-2" size="xsmall" shape="circle" style="margin-right: 4px"/>
+                                    #{funcionarioController.getfuncionarioAutenticado().nome}
+                                </div>
 
-                            <p:menuitem value="" outcome="/funcionario/homeFuncionario" style="margin-right: 8px">
-                                <f:param name="i" value="7"/>
-                                #{funcionarioController.getfuncionarioAutenticado().nome}
-                            </p:menuitem>
-                        </p:tabMenu>
+                            </f:facet>
+
+                        </p:menubar>
 
                     </div>
+
                 </div>
 
             </ui:insert>
