@@ -4,7 +4,9 @@
  */
 package br.edu.ifsp.pep.listener;
 
+import br.edu.ifsp.pep.controller.ContaController;
 import br.edu.ifsp.pep.controller.FuncionarioController;
+import br.edu.ifsp.pep.model.Conta;
 import br.edu.ifsp.pep.model.Funcionario;
 import br.edu.ifsp.pep.utils.Rotas;
 import java.io.IOException;
@@ -23,12 +25,17 @@ public class Autorizacao implements PhaseListener {
     @Inject
     private FuncionarioController funcionarioController;
 
+    @Inject
+    private ContaController contaController;
+
     @Override
     public void afterPhase(PhaseEvent pe) {
 
         HttpServletRequest request = (HttpServletRequest) pe.getFacesContext().getExternalContext().getRequest();
 
         Funcionario funcionarioAutenticado = funcionarioController.getfuncionarioAutenticado();
+
+        Conta contaAutenticada = contaController.getContaAutenticada();
 
         if ((funcionarioAutenticado == null) && !Rotas.rotaValida('p', request.getServletPath())) {
             try {
@@ -46,6 +53,16 @@ public class Autorizacao implements PhaseListener {
             } catch (IOException e) {
                 e.printStackTrace();
 
+            }
+            return;
+        }
+
+        if (contaAutenticada != null && !Rotas.rotaValida('c', request.getServletPath())) {
+            try {
+                pe.getFacesContext().getExternalContext().redirect("/Banco_Fp2/homeCliente.xhtml");
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return;
         }

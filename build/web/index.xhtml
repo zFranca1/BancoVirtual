@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Login Funcionario</title>
+        <title>Login Conta</title>
     </h:head>
     <h:body>
 
@@ -13,12 +13,12 @@
                 <h2>Login</h2>
                 <p:growl id="growl" showDetail="true" />
                 <p:outputLabel for="login"/>
-                <p:inputText id="login" placeholder="Login" class="logintxt" style="width: 100%" value="#{funcionarioController.funcionario.email}"/>
+                <p:inputText id="login" placeholder="Numero Conta" class="logintxt" style="width: 100%" value="#{contaController.conta.numero}"/>
                 <p></p>
                 <p:outputLabel for="senha" />
-                <p:password id="senha" placeholder="Senha" class="senhatxt" style="width: 100%" value="#{funcionarioController.funcionario.senha}"/>
+                <p:password id="senha" placeholder="Senha" class="senhatxt" style="width: 100%" value="#{contaController.conta.senha}"/>
                 <p></p>
-                <p:commandButton value="Entrar" class="button" update="formulario" action="#{funcionarioController.autenticar}" ajax="false" />
+                <p:commandButton value="Entrar" class="button" update="formulario" action="#{contaController.autenticar()}" ajax="false" />
             </div>
         </h:form>
     </h:body>

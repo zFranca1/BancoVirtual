@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -38,10 +39,9 @@ public class ContaDAO {
         }
     }
 
-    public Conta autenticar(String numero, Agencia agencia, String senha) {
-        Query query = em.createNamedQuery("Conta.autentica", Conta.class);
+    public Conta autenticar(String numero, String senha) {
+        TypedQuery<Conta> query = em.createQuery("SELECT c FROM Conta c WHERE c.numero = :numero AND c.senha =:senha", Conta.class);
         query.setParameter("numero", numero);
-        query.setParameter("agencia", agencia);
         query.setParameter("senha", senha);
 
         try {

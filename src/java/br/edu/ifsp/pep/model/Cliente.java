@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 @DiscriminatorValue(value = "C")
 @NamedQueries({
     @NamedQuery(name = "Cliente.buscar", query = "SELECT c FROM Cliente c"),
+    @NamedQuery(name = "Cliente.buscarCpf", query = "SELECT c FROM Cliente c WHERE c.cpf = :cpf")
 })
 
 public class Cliente extends Usuario {

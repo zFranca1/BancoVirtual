@@ -6,8 +6,9 @@ package br.edu.ifsp.pep.utils;
  */
 public class Rotas {
 
-    public static final String[] publica_rota = new String[]{"/index.xhtml"};
+    public static final String[] publica_rota = new String[]{"/funcionario/index.xhtml", "/index.xhtml"};
     public static final String[] funcionario_rota = new String[]{"/funcionario/homeFuncionario.xhtml", "/funcionario/cliente.xhtml", "/funcionario/agencias.xhtml", "/funcionario/novoCliente.xhtml"};
+    public static final String[] cliente_rota = new String[]{"/homeCliente.xhtml"};
 
     public static boolean rotaValida(String destino) {
 
@@ -34,6 +35,10 @@ public class Rotas {
 
             case 'f':
                 rotas = funcionario_rota;
+                break;
+
+            case 'c':
+                rotas = cliente_rota;
                 break;
         }
 
