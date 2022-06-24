@@ -13,7 +13,7 @@
                 <h2>Login</h2>
                 <p:growl id="growl" showDetail="true" />
                 <p:outputLabel for="login"/>
-                <p:inputText id="login" placeholder="Numero Conta" class="logintxt" style="width: 100%" value="#{contaController.conta.numero}"/>
+                <p:inputMask mask="999999999" id="login" placeholder="Numero Conta" class="logintxt" style="width: 100%" value="#{contaController.conta.numero}"/>
                 <p></p>
                 <p:outputLabel for="senha" />
                 <p:password id="senha" placeholder="Senha" class="senhatxt" style="width: 100%" value="#{contaController.conta.senha}"/>

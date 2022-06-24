@@ -36,15 +36,22 @@
                             </div>
                         </div>
                         <p></p>
-                        <div class="p-field p-grid">
-                            <div class="p-col">
-                                <p:inputText type="text" placeholder="Numero Agencia" value="#{contaController.codigo}" required="true" requiredMessage="coloca o numero da agencia ai"/>
-                            </div>
+                        <div class="p-field p-col-12">
+                            <p:selectOneMenu value="#{contaController.conta.agencia}" class="input" required="true" requiredMessage="Informe uma Agência." style="line-height: 30px">
+                                <f:selectItem itemLabel="Selecione uma Agência..." itemValue=""/>
+                                <f:selectItems value="#{agenciaController.agencias}" var="item" itemValue="#{item}" itemLabel="#{item.numero} - #{item.nome}"/>
+                            </p:selectOneMenu>
                         </div>
                         <p></p>
                         <div class="p-field p-grid">
                             <div class="p-col">
                                 <p:inputMask placeholder="Senha" value="#{contaController.conta.senha}" required="true" requiredMessage="coloca a senha ai" type="password"/>
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="p-field p-grid">
+                            <div class="p-col">
+                                <p:inputMask placeholder="Senha De operação" value="#{contaController.conta.senhaConfirmacao}" required="true" requiredMessage="coloca a senha de operacao ai" type="password"/>
                             </div>
                         </div>
                         <p></p>

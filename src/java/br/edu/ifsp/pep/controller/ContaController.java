@@ -48,20 +48,16 @@ public class ContaController implements Serializable {
     }
 
     public void adicionar() {
-
         Cliente c = clienteDAO.buscarCPF(conta.getCliente().getCpf());
         if (c == null) {
-
+            addMessage(FacesMessage.SEVERITY_FATAL, "ERRO", "CPF inválido");
             return;
-
         }
 
         conta.setCliente(c);
-
         Conta cc = contaDAO.buscar(conta.getNumero(), conta.getAgencia());
-
-        if (cc == null) {
-
+        if (cc != null) {
+            addMessage(FacesMessage.SEVERITY_FATAL, "ERRO", "Conta já existe");
             return;
         }
 
@@ -70,10 +66,9 @@ public class ContaController implements Serializable {
         } else {
             contaDAO.insert(conta);
         }
-
+        addMessage(FacesMessage.SEVERITY_INFO, "SUCESSO", "Conta Adicionada");
         conta = new ContaEspecial();
         conta.setCliente(new Cliente());
-
     }
 
     public void autenticar() throws IOException {
@@ -89,6 +84,11 @@ public class ContaController implements Serializable {
         conta = new ContaEspecial();
         addMessage(FacesMessage.SEVERITY_INFO, "SUCESSO", "entrou");
         FacesContext.getCurrentInstance().getExternalContext().redirect("/Banco_Fp2/cliente/home.xhtml");
+    }
+
+    public void sair() {
+        contaAutenticada = null;
+
     }
 
     public ClienteDAO getClienteDAO() {

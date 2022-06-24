@@ -11,9 +11,9 @@
 
             <ui:define name="content">
 
-                <p>Clientes</p>
+                <p>Contas</p>
+                <p:commandButton value="Novo" action="novaConta"/>
                 <h:form>
-                    <p:commandButton value="Novo" class="button" action="novaConta"/>
 
                     <div style="display: flex; align-items: center; margin-right: 8px; margin-top: 100px">
                         <p:dataTable id="clientes" var="cliente"
@@ -36,14 +36,16 @@
                             <p:column headerText="Nome" sortBy="#{cliente.cliente.nome}" filterBy="#{cliente.cliente.nome}">
                                 <h:outputText value="#{cliente.cliente.nome}" />
                             </p:column>
-
+                            <p:column headerText="Agencia" sortBy="#{cliente.cliente.agencia.nome}" filterBy="#{cliente.cliente.agencia.nome}">
+                                <h:outputText value="#{cliente.cliente.agencia.nome}" />
+                            </p:column>
                         </p:dataTable>
                     </div>
                 </h:form>
             </ui:define>
 
             <ui:define name="bottom">
-                bottom
+
             </ui:define>
 
         </ui:composition>

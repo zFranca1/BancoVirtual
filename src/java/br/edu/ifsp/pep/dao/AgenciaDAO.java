@@ -29,6 +29,10 @@ public class AgenciaDAO {
         return query.getResultList();
     }
 
+    public Agencia buscarPorCodigo(int codigo) {
+        return em.find(Agencia.class, codigo);
+    }
+
     public Agencia buscarNumero(String numero) {
         Query query = em.createNamedQuery("Agencia.buscarCodigoAgencia", Agencia.class);
         query.setParameter("numero", numero);
