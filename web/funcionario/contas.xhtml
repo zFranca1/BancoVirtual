@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./templateFuncionario.xhtml">
+
+            <ui:define name="content">
+                <p>Clientes</p>
+                <p:commandButton value="Novo" class="button" action="novaConta"/>
+                <div style="display: flex; align-items: center; margin-right: 8px; margin-top: 100px">
+                    <p:dataTable id="clientes" var="cliente"
+                                 styleClass="products-table"
+                                 value="#{contaController.contas}"
+                                 rowKey="#{cliente.codigo}"
+                                 selection="#{clienteController.clienteSelecionado}"
+                                 selectionMode="single"
+                                 stripedRows="true"
+                                 rows="5"
+                                 lazy="false"
+                                 paginator="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                                 rowsPerPageTemplate="4,8,{ShowAll|'All'}"
+                                 >
+                        <p:column headerText="Codigo" sortBy="#{cliente.cliente.codigo}" filterBy="#{cliente.cliente.codigo}">
+                            <h:outputText value="#{cliente.cliente.codigo}" />
+                        </p:column>
+                        <p:column headerText="Nome" sortBy="#{cliente.cliente.nome}" filterBy="#{cliente.cliente.nome}">
+                            <h:outputText value="#{cliente.cliente.nome}" />
+                        </p:column>
+
+                    </p:dataTable>
+                </div>
+            </ui:define>
+
+            <ui:define name="bottom">
+                bottom
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -7,6 +7,7 @@ import br.edu.ifsp.pep.model.Conta;
 import br.edu.ifsp.pep.model.ContaEspecial;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -29,6 +30,8 @@ public class ContaController implements Serializable {
     private ContaEspecial conta;
 
     private Conta contaAutenticada = null;
+
+    private List<Conta> contas;
 
     public ContaController() {
         this.conta = new ContaEspecial();
@@ -111,6 +114,20 @@ public class ContaController implements Serializable {
 
     public Conta getContaAutenticada() {
         return contaAutenticada;
+    }
+
+    public List<Conta> getContas() {
+        if (contas == null) {
+
+            this.contas = contaDAO.buscarTodos();
+            return contas;
+        }
+
+        return contas;
+    }
+
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
     }
 
     public void setContaAutenticada(Conta contaAutenticada) {

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./templateFuncionario.xhtml">
+
+            <ui:define name="content">
+                <p:panelGrid columns="4" layout="flex"
+                             columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4"
+                             styleClass="customPanelGrid" contentStyleClass="ui-fluid">
+                    <p:outputLabel for="textA1" value="Text 1"/>
+                    <p:inputText id="textA1"/>
+
+                    <p:outputLabel for="textA2" value="Text 2"/>
+                    <p:inputText id="textA2"/>
+
+                    <p:outputLabel for="dateA" value="Date"/>
+                    <p:datePicker id="dateA" showIcon="true" style="width:auto"/>
+
+                    <p:outputLabel for="checkboxA" value="Checkbox"/>
+                    <p:selectBooleanCheckbox id="checkboxA" itemLabel="Checkbox"/>
+
+                    <p:outputLabel for="text3A" value="Text 3"/>
+                    <p:inputText id="text3A"/>
+
+                    <p:outputLabel for="selectOneA" value="SelectOne"/>
+                    <p:selectOneMenu id="selectOneA">
+                        <f:selectItem itemLabel="Select One" itemValue=""/>
+                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One"/>
+                        <f:selectItem itemLabel="PS4" itemValue="PS4"/>
+                        <f:selectItem itemLabel="Wii U" itemValue="Wii U"/>
+                    </p:selectOneMenu>
+                </p:panelGrid>
+
+            </ui:define>
+
+            <ui:define name="bottom">
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

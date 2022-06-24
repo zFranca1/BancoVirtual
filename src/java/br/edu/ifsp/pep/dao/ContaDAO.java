@@ -6,12 +6,14 @@ package br.edu.ifsp.pep.dao;
 
 import br.edu.ifsp.pep.model.Agencia;
 import br.edu.ifsp.pep.model.Conta;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import org.eclipse.persistence.jpa.jpql.parser.ConcatExpression;
 
 /**
  *
@@ -37,6 +39,12 @@ public class ContaDAO {
         } catch (NoResultException ex) {
             return null;
         }
+    }
+
+    public List<Conta> buscarTodos() {
+        Query query = em.createNamedQuery("Conta.buscarTodos", Conta.class);
+
+        return query.getResultList();
     }
 
     public Conta autenticar(String numero, String senha) {

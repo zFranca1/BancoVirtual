@@ -27,6 +27,10 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo", length = 1, discriminatorType = DiscriminatorType.CHAR)
 @DiscriminatorValue("C")
+@NamedQueries({
+    @NamedQuery(name = "Conta.buscarTodos", query = "SELECT c FROM Conta c"),
+   
+})
 public class Conta implements Serializable {
 
     @Id

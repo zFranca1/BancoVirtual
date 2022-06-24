@@ -21,13 +21,13 @@
                 <div id="top">
                     <div class="card">
                         <p:menubar style="align-items: center" styleClass="centeredMenuBar">
-                            <p:menuitem value="Home" outcome="/cliente/homeCliente" icon="pi pi-fw pi-home">
+                            <p:menuitem value="Home" outcome="/cliente/home" icon="pi pi-fw pi-home">
                                 <f:param name="i" value="0"/>
                             </p:menuitem>
-                            <p:menuitem value="Conta" outcome="/cliente/homeCliente" icon="pi pi-fw pi-sign-out">
+                            <p:menuitem value="Conta" outcome="/cliente/home" icon="pi pi-fw pi-sign-out">
                                 <f:param name="i" value="1"/>
                             </p:menuitem>
-                            <p:menuitem value="Sair" outcome="/cliente/homeCliente" icon="pi pi-fw pi-sign-out">
+                            <p:menuitem value="Sair" outcome="/cliente/home" icon="pi pi-fw pi-sign-out">
                                 <f:param name="i" value="2"/>
                             </p:menuitem>
                             <div class="ui-input-icon-left p-mr-2">
@@ -37,7 +37,15 @@
                             <f:facet name="options">
                                 <div class="ui-input-icon-left p-mr-2" style="align-items: center; display: flex">
                                     <p:avatar label="F" styleClass="p-mr-2" size="xsmall" shape="circle" style="margin-right: 4px"/>
-                                    #{clienteController.cliente.nome}
+                                    #{contaController.getContaAutenticada().cliente.nome}
+                                    <p style="margin-right: 4px"></p>
+                                    <p></p>
+                                    <p style="margin-right: 4px"></p>
+                                    #{contaController.getContaAutenticada().saldo}
+                                    <p style="margin-right: 4px">
+                                        <br></br>
+                                    </p>
+                                    <p>$</p>
                                 </div>
 
                             </f:facet>

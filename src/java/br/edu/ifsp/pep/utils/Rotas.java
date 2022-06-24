@@ -9,7 +9,7 @@ import br.edu.ifsp.pep.model.Conta;
 public class Rotas {
 
     public static final String[] publica_rota = new String[]{"/funcionario/index.xhtml", "/cliente/home.xhtml", "/index.xhtml"};
-    public static final String[] funcionario_rota = new String[]{"/funcionario/homeFuncionario.xhtml", "/funcionario/cliente.xhtml", "/funcionario/agencia.xhtml", "/funcionario/novoCliente.xhtml"};
+    public static final String[] funcionario_rota = new String[]{"/funcionario/homeFuncionario.xhtml", "/funcionario/cliente.xhtml", "/funcionario/agencia.xhtml", "/funcionario/novoCliente.xhtml", "/funcionario/contas.xhtml", "/funcionario/"};
 //    public static final String[] cliente_rota = new String[]{"/"};
 
     public static boolean rotaValida(String destino) {
