@@ -5,6 +5,7 @@ import br.edu.ifsp.pep.dao.ContaDAO;
 import br.edu.ifsp.pep.model.Cliente;
 import br.edu.ifsp.pep.model.Conta;
 import br.edu.ifsp.pep.model.ContaEspecial;
+import java.io.IOException;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -69,7 +70,7 @@ public class ContaController implements Serializable {
         return;
     }
 
-    public void autenticar() {
+    public void autenticar() throws IOException {
 
         Conta c = contaDAO.autenticar(conta.getNumero(), conta.getSenha());
 
@@ -81,6 +82,7 @@ public class ContaController implements Serializable {
         contaAutenticada = c;
         conta = new ContaEspecial();
         addMessage(FacesMessage.SEVERITY_INFO, "SUCESSO", "entrou");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/Banco_Fp2/cliente/home.xhtml");
     }
 
     public ClienteDAO getClienteDAO() {
@@ -114,8 +116,6 @@ public class ContaController implements Serializable {
     public void setContaAutenticada(Conta contaAutenticada) {
         this.contaAutenticada = contaAutenticada;
     }
-    
-    
 
     public void addMessage(FacesMessage.Severity severity, String summary, String detail) {
         FacesContext.getCurrentInstance().

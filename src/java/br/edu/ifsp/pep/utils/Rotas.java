@@ -8,9 +8,9 @@ import br.edu.ifsp.pep.model.Conta;
  */
 public class Rotas {
 
-    public static final String[] publica_rota = new String[]{"/funcionario/index.xhtml", "/index.xhtml"};
+    public static final String[] publica_rota = new String[]{"/funcionario/index.xhtml", "/cliente/home.xhtml", "/index.xhtml"};
     public static final String[] funcionario_rota = new String[]{"/funcionario/homeFuncionario.xhtml", "/funcionario/cliente.xhtml", "/funcionario/agencia.xhtml", "/funcionario/novoCliente.xhtml"};
-    public static final String[] cliente_rota = new String[]{"/homeCliente.xhtml"};
+//    public static final String[] cliente_rota = new String[]{"/"};
 
     public static boolean rotaValida(String destino) {
 
@@ -39,9 +39,9 @@ public class Rotas {
                 rotas = funcionario_rota;
                 break;
 
-            case 'c':
-                rotas = cliente_rota;
-                break;
+//            case 'c':
+//                rotas = cliente_rota;
+//                break;
         }
 
         for (String rota : rotas) {
@@ -54,18 +54,17 @@ public class Rotas {
         return false;
     }
 
-    public static boolean valida_rota(Conta c, String destino) {
-        if (c != null) {
-            return false;
-        };
-
-        for (String rota : cliente_rota) {
-            if (rota.equals(destino)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
+//    public static boolean rotaValida(Conta c, String destino) {
+//        if (c != null) {
+//            return false;
+//        }
+//
+//        for (String rota : cliente_rota) {
+//            if (rota.equals(destino)) {
+//                return true;
+//            }
+//        }
+//
+//        return false;
+//    }
 }

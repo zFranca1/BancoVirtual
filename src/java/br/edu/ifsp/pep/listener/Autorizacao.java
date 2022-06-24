@@ -53,15 +53,16 @@ public class Autorizacao implements PhaseListener {
             return;
         }
 
-        if (contaAutenticada != null && !Rotas.rotaValida('c', request.getServletPath())) {
-            try {
-                pe.getFacesContext().getExternalContext().redirect("/Banco_Fp2/cliente/homeCliente.xhtml");
+//        if (contaAutenticada != null && !Rotas.rotaValida('c', request.getServletPath())) {
+//            try {
+//                pe.getFacesContext().getExternalContext().redirect("/Banco_Fp2/home.xhtml");
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return;
+//        }
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return;
-        }
     }
 
     @Override

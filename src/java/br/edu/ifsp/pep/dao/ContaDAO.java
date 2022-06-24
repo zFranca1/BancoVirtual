@@ -40,7 +40,7 @@ public class ContaDAO {
     }
 
     public Conta autenticar(String numero, String senha) {
-        TypedQuery<Conta> query = em.createQuery("SELECT c FROM Conta c WHERE c.numero = :numero AND c.senha =:senha", Conta.class);
+        TypedQuery<Conta> query = em.createQuery("SELECT c FROM Conta c WHERE c.numero = :numero AND c.senha = :senha", Conta.class);
         query.setParameter("numero", numero);
         query.setParameter("senha", senha);
 
