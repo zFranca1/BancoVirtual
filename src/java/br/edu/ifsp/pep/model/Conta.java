@@ -29,7 +29,7 @@ import javax.persistence.Table;
 @DiscriminatorValue("C")
 @NamedQueries({
     @NamedQuery(name = "Conta.buscarTodos", query = "SELECT c FROM Conta c"),
-   
+    @NamedQuery(name = "Conta.busca", query = "SELECT c FROM Conta c WHERE c.numero = :numero AND c.agencia = :agencia")
 })
 public class Conta implements Serializable {
 

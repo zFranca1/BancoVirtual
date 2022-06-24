@@ -10,32 +10,36 @@
         <ui:composition template="./templateFuncionario.xhtml">
 
             <ui:define name="content">
-                <p>Clientes</p>
-                <p:commandButton value="Novo" class="button" action="novaConta"/>
-                <div style="display: flex; align-items: center; margin-right: 8px; margin-top: 100px">
-                    <p:dataTable id="clientes" var="cliente"
-                                 styleClass="products-table"
-                                 value="#{contaController.contas}"
-                                 rowKey="#{cliente.codigo}"
-                                 selection="#{clienteController.clienteSelecionado}"
-                                 selectionMode="single"
-                                 stripedRows="true"
-                                 rows="5"
-                                 lazy="false"
-                                 paginator="true"
-                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
-                                 rowsPerPageTemplate="4,8,{ShowAll|'All'}"
-                                 >
-                        <p:column headerText="Codigo" sortBy="#{cliente.cliente.codigo}" filterBy="#{cliente.cliente.codigo}">
-                            <h:outputText value="#{cliente.cliente.codigo}" />
-                        </p:column>
-                        <p:column headerText="Nome" sortBy="#{cliente.cliente.nome}" filterBy="#{cliente.cliente.nome}">
-                            <h:outputText value="#{cliente.cliente.nome}" />
-                        </p:column>
 
-                    </p:dataTable>
-                </div>
+                <p>Clientes</p>
+                <h:form>
+                    <p:commandButton value="Novo" class="button" action="novaConta"/>
+
+                    <div style="display: flex; align-items: center; margin-right: 8px; margin-top: 100px">
+                        <p:dataTable id="clientes" var="cliente"
+                                     styleClass="products-table"
+                                     value="#{contaController.contas}"
+                                     rowKey="#{cliente.codigo}"
+                                     selection="#{clienteController.clienteSelecionado}"
+                                     selectionMode="single"
+                                     stripedRows="true"
+                                     rows="5"
+                                     lazy="false"
+                                     paginator="true"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                                     rowsPerPageTemplate="4,8,{ShowAll|'All'}"
+                                     >
+                            <p:column headerText="Codigo" sortBy="#{cliente.cliente.codigo}" filterBy="#{cliente.cliente.codigo}">
+                                <h:outputText value="#{cliente.cliente.codigo}" />
+                            </p:column>
+                            <p:column headerText="Nome" sortBy="#{cliente.cliente.nome}" filterBy="#{cliente.cliente.nome}">
+                                <h:outputText value="#{cliente.cliente.nome}" />
+                            </p:column>
+
+                        </p:dataTable>
+                    </div>
+                </h:form>
             </ui:define>
 
             <ui:define name="bottom">
@@ -43,6 +47,5 @@
             </ui:define>
 
         </ui:composition>
-
     </body>
 </html>

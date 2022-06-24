@@ -14,28 +14,43 @@
                 <p:panelGrid columns="4" layout="flex"
                              columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4"
                              styleClass="customPanelGrid" contentStyleClass="ui-fluid">
-                    <p:outputLabel for="textA1" value="Text 1"/>
-                    <p:inputText id="textA1"/>
 
-                    <p:outputLabel for="textA2" value="Text 2"/>
-                    <p:inputText id="textA2"/>
+                    <h:form>
+                        <div class="p-field p-grid">
+                            <div class="p-col">
+                                <p:inputMask mask="999.999.999-99" type="text" placeholder="Cliente CPF" value="#{contaController.conta.cliente.cpf}" required="true" requiredMessage="Coloca o cpf ai"/>
+                            </div>
+                        </div>
+                        <p>
+                        </p>
+                        <div class="p-field p-grid">
+                            <div class="p-col">
+                                <p:inputMask mask="999999999" type="text" placeholder="Numero Conta" value="#{contaController.conta.numero}" required="true" requiredMessage="coloca o numero da conta ai "/>
+                            </div>
+                        </div>
+                        <p>
+                        </p>
+                        <div class="p-field p-grid">
+                            <div class="p-col">
+                                <p:inputNumber value="#{contaController.conta.limite}" symbol="R$" minValue="0" decimalSeparator="," thousandSeparator="." type="text" placeholder="Limite" />
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="p-field p-grid">
+                            <div class="p-col">
+                                <p:inputText type="text" placeholder="Numero Agencia" value="#{contaController.codigo}" required="true" requiredMessage="coloca o numero da agencia ai"/>
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="p-field p-grid">
+                            <div class="p-col">
+                                <p:inputMask placeholder="Senha" value="#{contaController.conta.senha}" required="true" requiredMessage="coloca a senha ai" type="password"/>
+                            </div>
+                        </div>
+                        <p></p>
 
-                    <p:outputLabel for="dateA" value="Date"/>
-                    <p:datePicker id="dateA" showIcon="true" style="width:auto"/>
-
-                    <p:outputLabel for="checkboxA" value="Checkbox"/>
-                    <p:selectBooleanCheckbox id="checkboxA" itemLabel="Checkbox"/>
-
-                    <p:outputLabel for="text3A" value="Text 3"/>
-                    <p:inputText id="text3A"/>
-
-                    <p:outputLabel for="selectOneA" value="SelectOne"/>
-                    <p:selectOneMenu id="selectOneA">
-                        <f:selectItem itemLabel="Select One" itemValue=""/>
-                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One"/>
-                        <f:selectItem itemLabel="PS4" itemValue="PS4"/>
-                        <f:selectItem itemLabel="Wii U" itemValue="Wii U"/>
-                    </p:selectOneMenu>
+                        <p:commandButton value="Salvar" class="button" action="#{contaController.adicionar()}" ajax="false"/>
+                    </h:form>
                 </p:panelGrid>
 
             </ui:define>

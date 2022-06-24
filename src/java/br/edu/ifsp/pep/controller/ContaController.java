@@ -33,9 +33,13 @@ public class ContaController implements Serializable {
 
     private List<Conta> contas;
 
+    private String codigo;
+
     public ContaController() {
+
         this.conta = new ContaEspecial();
         conta.setCliente(new Cliente());
+        this.codigo = new String();
 
     }
 
@@ -70,7 +74,6 @@ public class ContaController implements Serializable {
         conta = new ContaEspecial();
         conta.setCliente(new Cliente());
 
-        return;
     }
 
     public void autenticar() throws IOException {
@@ -90,6 +93,14 @@ public class ContaController implements Serializable {
 
     public ClienteDAO getClienteDAO() {
         return clienteDAO;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public void setClienteDAO(ClienteDAO clienteDAO) {
